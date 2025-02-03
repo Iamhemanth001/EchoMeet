@@ -13,7 +13,11 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import { connectToSocket } from './controllers/socketManager.js';
 
+import userRoutes from './routes/users.Routes.js';
+
 const app = express();
+app.use("/api/v1/users", userRoutes);
+
 const server = createServer(app);
 const io = connectToSocket(server);
 
